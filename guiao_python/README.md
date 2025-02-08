@@ -2,7 +2,8 @@
 
 ---
 
-![Capa do Guia Completo de Python](imagens/imagem_guiao_python.png)
+![imagem_guiao_python](https://github.com/user-attachments/assets/46b1147c-5847-450e-9f4d-e433a04c8df5)
+
 
 # Guia Completo de Python
 
