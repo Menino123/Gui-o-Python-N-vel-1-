@@ -8,7 +8,7 @@
 # Guia Completo de Python
 
 **Autor:** Rodrigo Alves\
-**Data:** 08/02/2025**Guia Completo de Python**\
+**Data:** 08/02/2025
 
 ---
 
