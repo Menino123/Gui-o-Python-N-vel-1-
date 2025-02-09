@@ -30,6 +30,7 @@
     - [Comentários](#31-comentários)
     - [Identificação e Indentação](#32-identificação-e-indentação)
     - [Declaração de Variáveis](#33-declaração-de-variáveis)
+      - [Regras das Variáveis](#331-regras-das-variáveis)
     - [Estruturas de Controle](#34-estruturas-de-controle)
       - [Condicionais](#341-condicionais)
       - [Laços de Repetição](#342-laços-de-repetição)
@@ -45,7 +46,7 @@
       - [Interpolação de Strings](#422-interpolação-de-strings)
     - [Booleanos (bool)](#43-booleanos-bool)
     - [Listas (list)](#44-listas-list)
-      - [Manipulando Listas](#441-manipulando-listas)
+      - [Manipulação de Listas](#441-manipulação-de-listas)
     - [Tuplas (tuple)](#45-tuplas-tuple)
     - [Dicionários (dict)](#46-dicionários-dict)
     - [Conjuntos (set)](#47-conjuntos-set)
@@ -68,7 +69,7 @@
 7. [Módulos e Pacotes](#7-módulos-e-pacotes)
     - [Módulos](#71-módulos)
     - [Funções Comuns do Módulo `math`](#72-funções-comuns-do-módulo-math)
-    - [Criando seus Próprios Módulos](#73-criando-seus-próprios-módulos)
+    - [Criando os seus Próprios Módulos](#73-criando-os-seus-próprios-módulos)
     - [Pacotes](#74-pacotes)
     - [Importando Especificamente Funções de um Módulo](#75-importando-especificamente-funções-de-um-módulo)
     - [Alias para Módulos](#76-alias-para-módulos)
@@ -313,6 +314,8 @@ A seguir, apresentamos os principais elementos de sintaxe básica do Python.
 ---
 # !Importante:
 
+Todos os seus ficheiros python têm que ter a extenção `.py`
+
 Para começar a ser conciderado um programador digite no seu IDE:
 
 ```python
@@ -371,6 +374,67 @@ idade = 25  # Inteiro (int)
 altura = 1.68  # Float (float)
 ativo = True  # Booleano (bool)
 ```
+
+#### 3.3.1. Regras das Variáveis
+
+Em Python, as variáveis seguem algumas regras e boas práticas para serem definidas corretamente.  
+
+#### **Nomes válidos**  
+
+- Os nomes das variáveis devem começar com uma letra (a-z, A-Z) ou um underline `_`, mas não podem começar com números.  
+- Podem conter letras, números e underlines.  
+- Não podem ter espaços nem caracteres especiais como `@, $, %`.  
+- Não podem ser palavras reservadas (palavras-chave) da linguagem python, como `if`, `while`, `def`, `class`, etc.  
+
+**Exemplos válidos:**  
+```python
+nome = "João"
+_idade = 25
+valor_total = 100.50
+```
+
+**Exemplos inválidos:**  
+```python
+2nome = "Maria"  # Erro: não pode começar com número
+nome total = "Pedro"  # Erro: não pode conter espaços
+def = 10  # Erro: "def" é uma palavra reservada
+```
+
+#### **Sensibilidade a maiúsculas e minúsculas**  
+
+Em Python, variáveis são case-sensitive, ou seja, `idade` e `Idade` são diferentes.  
+
+```python
+idade = 20
+Idade = 30
+print(idade)  # Saída: 20
+print(Idade)  # Saída: 30
+```
+
+#### **Constantes**
+
+Em python as contantes não passam de uma variavel nomal, mas servem de um aviso para nós programadores de que aqule valor armazenado na constante não pode ou não convem ser mudado ao longo do programa.
+
+Normalmente as constantes escrevem-se em `MAIÚSCULO`.
+
+As contantes têm as mesmas regras das variáveis pois, como eu disse a cima elas não passam de variáveis.
+
+**Exemplo de constante**
+```python
+meu_nome = 'Rodrigo' # variável normal
+MEU_NOME = 'Rodrigo' # constante
+```
+
+#### **4. Boas práticas**  
+- Utilize nomes descritivos para facilitar a compreensão do código.  
+- Use `letras_minusculas` (letras minúsculas separadas por `_`) para variáveis comuns.  
+
+```python
+quantidade_produtos = 50  # Nome descritivo e correto
+```
+
+Seguir essas regras ajuda a manter o código legível e organizado!
+
 
 ### 3.4 Estruturas de Controle
 
@@ -505,25 +569,30 @@ print("Meu nome é {} e tenho {} anos.".format(nome, idade))
 O tipo `bool` possui dois valores: `True` ou `False`. Ele é frequentemente usado em expressões condicionais(if, elif, else).
 
 ```python
-ativo = True
+ligado = True
 desligado = False
-print(type(ativo))  # <class 'bool'>
+print(type(ligado))  # <class 'bool'>
+print(type(desligado))  # <class 'bool'>
+# True = 1
+# False = 0
 
 # Condicional
 idade = 18
 maior_de_idade = idade >= 18  # Retorna True
 print(maior_de_idade)
+
+# idade >= 18 - significa que a idade é maior ou igual a 18
 ```
 
 ### 4.4. Listas (list)
 
-Listas são estruturas ordenadas que permitem armazenar múltiplos valores.
+As listas são estruturas ordenadas que permitem armazenar múltiplos valores.
 
-#### 4.4.1. Manipulando Listas
+#### 4.4.1. Manipulação de Listas
 
 - **Adicionar elementos**: `append()`
 - **Remover elementos**: `remove()`
-- **Acessar elementos**: Usando índices
+- **Acessar a elementos**: Usando índices
 - **Tamanho da lista**: `len()`
 
 ```python
@@ -532,20 +601,24 @@ numeros.append(6)  # Adiciona 6 ao final da lista
 numeros.remove(3)  # Remove o número 3
 
 print(numeros)  # [1, 2, 4, 5, 6]
-print(len(numeros))  # 5
+print(len(numeros))  # 5 números de comprimento
 
-# Acessando elementos
-print(numeros[0])  # Acessa o primeiro elemento
-print(numeros[-1])  # Acessa o último elemento
+# Acessando a elementos
+print(numeros[0])  # Acessa ao primeiro elemento
+print(numeros[-1])  # Acessa ao último elemento
 ```
 
 ### 4.5. Tuplas (tuple)
 
-Tuplas são semelhantes às listas, mas imutáveis. Ou seja, após criá-las, não podemos modificar os seus elementos.
+As tuplas são semelhantes às listas, mas imutáveis. Ou seja, após criá-las, não podemos modificar os seus elementos.
 
 ```python
 tupla = (10, 20, 30)
-print(tupla[1])  # Acessa o segundo elemento
+print(tupla[1])  # Acessa ao segundo elemento
+
+# primeiro elemento = 0
+# segundo elmento = 1
+# terceiro elemento = 2
 ```
 
 ### 4.6. Dicionários (dict)
@@ -554,7 +627,7 @@ Dicionários armazenam pares de chave-valor, e você pode acessar os valores pel
 
 ```python
 pessoa = {"nome": "Alice", "idade": 25, "cidade": "São Paulo"}
-print(pessoa["nome"])  # Acessa o valor da chave 'nome'
+print(pessoa["nome"])  # Acessa ao valor da chave 'nome'
 
 # Adicionando novos pares chave-valor
 pessoa["profissao"] = "Engenheira"
@@ -738,7 +811,7 @@ def saudacao(nome):
 
 ### 6.2. Chamando uma Função
 
-Para chamar uma função, basta usar seu nome e passar os argumentos esperados. No caso de nossa função `saudacao`, o argumento esperado é o nome da pessoa.
+Para chamar uma função, basta usar o seu nome e passar os argumentos esperados. No caso da nossa função `saudacao`, o argumento esperado é o nome da pessoa.
 
 ```python
 print(saudacao("Alice"))
@@ -748,7 +821,7 @@ Neste exemplo, a função `saudacao` recebe o valor `"Alice"` e retorna a string
 
 ### 6.3. Funções com Múltiplos Parâmetros
 
-Você pode definir funções que recebem mais de um parâmetro. Por exemplo, vamos criar uma função que recebe o nome e a idade de uma pessoa e retorna uma mensagem.
+Você pode definir funções que recebem mais de um parâmetro. Por exemplo, vamos criar uma função que receba o nome e a idade de uma pessoa e que retorne uma mensagem.
 
 ```python
 def apresentar_pessoa(nome, idade):
@@ -783,10 +856,10 @@ Se uma função não precisar retornar um valor, você pode omitir a palavra-cha
 def imprimir_saudacao(nome):
     print(f"Olá, {nome}!")
 
-imprimir_saudacao("Alice")  # Apenas imprime no console
+imprimir_saudacao("Alice")  # Apenas imprime na consola
 ```
 
-Neste caso, a função não retorna nada, ela apenas imprime uma mensagem na tela.
+Neste caso, a função não retorna nada, ela apenas imprime uma mensagem na consola.
 
 ### 6.6. Funções que Retornam Vários Valores
 
@@ -802,7 +875,7 @@ area, perimetro = calcular_area_e_perimetro(5)
 print(f"Área: {area}, Perímetro: {perimetro}")
 ```
 
-Aqui, a função retorna dois valores: `area` e `perimetro`, que são então desempacotados nas variáveis correspondentes.
+Aqui, a função retorna dois valores: `area` e `perimetro`, que são então "desempacotados" nas variáveis correspondentes.
 
 ### 6.7. Funções Lambda (Funções Anônimas)
 
@@ -822,8 +895,8 @@ print(soma(3, 4))  # 7
 
 - **Funções** ajudam a organizar e reutilizar o código.
 - Você pode passar **parâmetros** para a função e ela pode **retornar valores**.
-- Funções podem ter **parâmetros opcionais** e **retornar múltiplos valores**.
-- Funções **lambda** são simples e geralmente usadas para expressões rápidas.
+- As funções podem ter **parâmetros opcionais** e **retornar múltiplos valores**.
+- As funções **lambda** são simples e geralmente usadas para expressões rápidas.
 
 ---
 
@@ -833,12 +906,12 @@ No Python, **módulos** são arquivos que contêm código Python (funções, cla
 
 ### 7.1. Módulos
 
-Um **módulo** em Python é um arquivo `.py` que contém definições e implementações de funções, variáveis e classes. Você pode importar módulos para usar suas funcionalidades em seu código.
+Um **módulo** em Python é um arquivo `.py` que contém definições e implementações de funções, variáveis e classes. Você pode importar módulos para usar as suas funcionalidades no seu código.
 
-No exemplo que você forneceu:
-
+**Exemplo**:
 ```python
 import math
+
 print(math.sqrt(16))  # 4.0
 ```
 
@@ -852,7 +925,7 @@ O módulo `math` fornece várias funções matemáticas úteis, como:
 - **math.pow(x, y)**: Retorna `x` elevado à potência `y`.
 - **math.factorial(x)**: Retorna o fatorial de `x`.
 - **math.pi**: Retorna o valor de pi (aproximadamente 3.14159).
-- **math.sin(x)**, **math.cos(x)**, **math.tan(x)**: Funções trigonométricas.
+- **math.sin(x)**, **math.cos(x)**, **math.tan(x)**: Funções trigonométricas (sin = seno), (cos = cosseno) e (tan = tangente).
 - **math.log(x, base)**: Retorna o logaritmo de `x` na base fornecida.
 
 #### Exemplo usando outras funções do módulo `math`:
@@ -877,9 +950,9 @@ angulo = math.radians(45)  # Converte para radianos
 print(math.sin(angulo))  # 0.7071067811865475
 ```
 
-### 7.3. Criando seus Próprios Módulos
+### 7.3. Criando os seus Próprios Módulos
 
-Você também pode criar seus próprios módulos. Suponha que você tenha um arquivo `meu_modulo.py` com o seguinte conteúdo:
+Você também pode criar os seus próprios módulos. Suponha que você tem um arquivo `meu_modulo.py` com o seguinte conteúdo:
 
 ```python
 # meu_modulo.py
@@ -891,7 +964,7 @@ def soma(a, b):
     return a + b
 ```
 
-Agora, você pode importar e usar esse módulo em outro arquivo Python.
+Agora, você pode importar e usar esse módulo noutro arquivo Python.
 
 ```python
 import meu_modulo
@@ -922,7 +995,7 @@ def funcao1():
     return "Função 1"
 ```
 
-E no `modulo2.py`:
+E no `modulo2.py`, você pode ter algo assim:
 
 ```python
 # modulo2.py
@@ -935,6 +1008,7 @@ Agora, você pode importar esses módulos a partir do pacote `meu_pacote`:
 
 ```python
 from meu_pacote import modulo1, modulo2
+# significado = do meu_pacote traz-me o modulo1 e o modulo2
 
 print(modulo1.funcao1())  # Função 1
 print(modulo2.funcao2())  # Função 2
@@ -942,7 +1016,7 @@ print(modulo2.funcao2())  # Função 2
 
 ### 7.5. Importando Especificamente Funções de um Módulo
 
-Você pode importar funções ou variáveis específicas de um módulo, evitando a necessidade de referenciar o nome do módulo toda vez:
+Você pode importar funções ou variáveis específicas de um módulo, evitando a necessidade de referenciar o nome do módulo todaa as vezes:
 
 ```python
 from math import sqrt, pi
@@ -953,7 +1027,7 @@ print(pi)  # 3.141592653589793
 
 ### 7.6. Alias para Módulos
 
-Você também pode usar um **alias** para um módulo, dando-lhe um nome mais curto para facilitar a escrita do código. Isso é especialmente útil quando o nome do módulo é muito longo.
+Você também pode usar um **alias** - `as` para um módulo, dando-lhe um nome mais curto para facilitar a escrita do código. Isso é especialmente útil quando o nome do módulo é muito longo.
 
 ```python
 import math as m
@@ -968,8 +1042,8 @@ Python já vem com muitos módulos e pacotes integrados, como:
 
 - `math`: Funções matemáticas
 - `datetime`: Manipulação de datas e horas
-- `random`: Geração de números aleatórios
-- `os`: Operações do sistema operacional
+- `random`: Geração de objetos aleatórios
+- `os`: Operações do sistema operacional (cuidado este módulo interage com o seu diapositivo)
 - `sys`: Parâmetros e funções do sistema
 - `json`: Manipulação de dados no formato JSON
 - `requests`: Para fazer requisições HTTP (não embutido, mas muito usado)
@@ -981,7 +1055,7 @@ Você pode ver a lista completa de módulos padrão da biblioteca do Python na [
 - **Módulos** são arquivos com código Python que você pode importar para reutilizar funções, classes e variáveis.
 - **Pacotes** são coleções de módulos organizadas em diretórios.
 - O Python possui muitos **módulos e pacotes integrados**, como o `math` para funções matemáticas e o `os` para interagir com o sistema operacional.
-- Você pode criar **seus próprios módulos e pacotes** para organizar e reutilizar seu código.
+- Você pode criar **os seus próprios módulos e pacotes** para organizar e reutilizar o seu código.
 
 ---
 
@@ -992,12 +1066,12 @@ Você pode ver a lista completa de módulos padrão da biblioteca do Python na [
 A função `input()` permite que o programa pause e espere que o usuário digite algo no teclado. O que for digitado será retornado como uma **string**. Podemos, então, usar essa informação no nosso programa.
 
 ```python
-nome = input("Digite seu nome: ")
+nome = input("Digite o seu nome: ")
 print(f"Olá, {nome}!")
 ```
 
 #### Explicação:
-- **`input("Digite seu nome: ")`**: Exibe a mensagem "Digite seu nome: " no console e aguarda que o usuário digite algo. O que for digitado será retornado como uma string e armazenado na variável `nome`.
+- **`input("Digite o seu nome: ")`**: Exibe a mensagem "Digite o seu nome: " na consola e aguarda que o usuário digite algo. O que for digitado será retornado como uma string e armazenado na variável `nome`.
 - **`print(f"Olá, {nome}!")`**: Exibe a saudação, utilizando a variável `nome`, que contém o valor digitado pelo usuário.
 
 ### 8.2. Entrada e Saída com Tipos Diferentes
@@ -1007,24 +1081,24 @@ Por padrão, o `input()` sempre retorna uma **string**, mas podemos convertê-la
 ### Exemplo 1: Solicitando a idade do usuário (tipo `int`):
 
 ```python
-idade = int(input("Digite sua idade: "))  # Converte a entrada para inteiro
+idade = int(input("Digite a sua idade: "))  # Converte a entrada para inteiro
 print(f"Você tem {idade} anos.")
 ```
 
 #### Explicação:
-- **`int(input("Digite sua idade: "))`**: A função `input()` lê a entrada do usuário como uma string e, em seguida, a função `int()` converte essa string em um número inteiro.
+- **`int(input("Digite a sua idade: "))`**: A função `input()` lê a entrada do usuário como uma string e, em seguida, a função `int()` converte essa string em um número inteiro.
 - **`print(f"Você tem {idade} anos.")`**: Exibe a idade do usuário em formato de string com interpolação de variável.
 
 ### Exemplo 2: Solicitando a altura do usuário (tipo `float`):
 
 ```python
-altura = float(input("Digite sua altura em metros: "))  # Converte a entrada para float
-print(f"Sua altura é {altura} metros.")
+altura = float(input("Digite a sua altura em metros: "))  # Converte a entrada para float
+print(f"A sua altura é: {altura} metros.")
 ```
 
 #### Explicação:
-- **`float(input("Digite sua altura em metros: "))`**: Lê a entrada como uma string e depois converte para um número de ponto flutuante.
-- **`print(f"Sua altura é {altura} metros.")`**: Exibe a altura do usuário.
+- **`float(input("Digite a sua altura em metros: "))`**: Lê a entrada como uma string e depois converte para um número decimal (float).
+- **`print(f"Sua altura é: {altura} metros.")`**: Exibe a altura do usuário.
 
 ### 8.3. Manipulando Várias Entradas
 
@@ -1033,13 +1107,13 @@ Podemos obter múltiplas entradas de uma vez usando a função `input()` com a a
 ### Exemplo: Lendo nome e idade ao mesmo tempo
 
 ```python
-nome, idade = input("Digite seu nome e idade (separados por espaço): ").split()
+nome, idade = input("Digite o seu nome e idade (separados por espaço): ").split()
 idade = int(idade)  # Converte a idade para inteiro
 print(f"Olá, {nome}! Você tem {idade} anos.")
 ```
 
 #### Explicação:
-- **`input().split()`**: Lê a entrada e a divide em partes com base nos espaços. O resultado é uma lista de strings.
+- **`input().split()`**: Lê a entrada e divide-a em partes com base nos espaços. O resultado é uma lista de strings.
 - **`nome, idade = ...`**: Atribui as partes da lista às variáveis `nome` e `idade`.
 - **`int(idade)`**: Converte a string de idade para inteiro.
 
@@ -1050,16 +1124,16 @@ A formatação de saída pode ser feita de diferentes maneiras, incluindo **f-st
 ### Usando f-strings (Python 3.6+):
 
 ```python
-nome = input("Digite seu nome: ")
-idade = int(input("Digite sua idade: "))
+nome = input("Digite o seu nome: ")
+idade = int(input("Digite a sua idade: "))
 print(f"Olá, {nome}! Você tem {idade} anos.")
 ```
 
 ### Usando o método `format()`:
 
 ```python
-nome = input("Digite seu nome: ")
-idade = int(input("Digite sua idade: "))
+nome = input("Digite o seu nome: ")
+idade = int(input("Digite a sua idade: "))
 print("Olá, {}! Você tem {} anos.".format(nome, idade))
 ```
 
@@ -1067,8 +1141,8 @@ print("Olá, {}! Você tem {} anos.".format(nome, idade))
 
 - **`input()`**: Usado para obter dados do usuário. O valor retornado é sempre uma string.
 - **Conversão de tipos**: Podemos converter a entrada para outros tipos, como `int()` ou `float()`.
-- **`print()`**: Usado para exibir mensagens ou resultados no console.
-- **Formatando saída**: Podemos usar f-strings ou o método `format()` para incluir variáveis na string de saída.
+- **`print()`**: Usado para exibir mensagens ou resultados na consola.
+- **Formatando a saída**: Podemos usar f-strings ou o método `format()` para incluir variáveis na string de saída.
 
 ---
 
@@ -1088,7 +1162,7 @@ Se você quiser ler o conteúdo completo de um arquivo de uma vez, pode usar o m
 # Abrindo e lendo o arquivo
 with open("arquivo.txt", "r") as arquivo:
     conteudo = arquivo.read()  # Lê todo o conteúdo
-    print(conteudo)  # Exibe o conteúdo no console
+    print(conteudo)  # Exibe o conteúdo na consola
 ```
 
 - `"r"`: Modo de leitura (read), que abre o arquivo para leitura. Se o arquivo não existir, um erro será gerado.
@@ -1110,7 +1184,7 @@ with open("arquivo.txt", "r") as arquivo:
 
 #### 9.1.3. Ler Todas as Linhas de uma Vez
 
-Se você quiser carregar todas as linhas de uma vez em uma lista, pode usar o método `readlines()`.
+Se você quiser carregar todas as linhas de uma vez numa lista, pode usar o método `readlines()`.
 
 ```python
 # Lendo todas as linhas em uma lista
@@ -1133,24 +1207,24 @@ Quando você usa o modo `"w"`, o conteúdo anterior do arquivo é apagado, e voc
 ```python
 # Abrindo e escrevendo no arquivo
 with open("arquivo.txt", "w") as arquivo:
-    arquivo.write("Olá, mundo!\n")  # Escreve no arquivo
+    arquivo.write("Hello, world!\n")  # Escreve no arquivo
     arquivo.write("Esta é uma nova linha.")  # Escreve outra linha
 ```
 
 - `"w"`: Modo de escrita (write), que sobrescreve o arquivo se ele já existir.
-- `arquivo.write("texto")`: Escreve o texto no arquivo. Note que o Python não adiciona automaticamente uma quebra de linha. Se você quiser, pode adicionar o `\n` para fazer isso.
+- `arquivo.write("texto")`: Escreve o texto no arquivo. Note que o Python não adiciona automaticamente uma quebra de linha. Se você quiser faze-lo pode adicionar o `\n`.
 
 #### 9.2.2. Adicionar Dados ao Arquivo (Modo "append")
 
 O modo `"a"` é usado quando você deseja adicionar novas informações ao final de um arquivo, sem apagar o conteúdo anterior.
 
 ```python
-# Abrindo o arquivo em modo append
+# Abrindo o arquivo no modo append
 with open("arquivo.txt", "a") as arquivo:
     arquivo.write("\nNova linha adicionada!")  # Adiciona uma linha ao final do arquivo
 ```
 
-- `"a"`: Modo de adicionar (append). Ele não sobrescreve o arquivo, apenas adiciona no final.
+- `"a"`: Modo de adição (append). Ele não sobrescreve o arquivo, apenas adiciona no final.
 
 #### 9.2.3. Escrever Dados a Partir de uma Lista
 
@@ -1213,7 +1287,7 @@ Agora você tem as ferramentas para ler e escrever arquivos em Python, podendo c
 
 ## 10. Tratamento de Exceções
 
-O tratamento de exceções em Python é um conceito fundamental para tornar seu código mais robusto e evitar que ele quebre quando ocorrerem erros durante a execução. O bloco `try` é usado para colocar o código que pode gerar exceções (erros), e o bloco `except` é usado para capturar e tratar esses erros de forma adequada.
+O tratamento de exceções em Python é um conceito fundamental para tornar o seu código mais robusto e evitar que ele quebre quando ocorrerem erros durante a execução. O bloco `try` é usado para colocar o código que pode gerar exceções (erros), e o bloco `except` é usado para capturar e tratar desses erros de forma adequada.
 
 Aqui está um exemplo detalhado e algumas variações para te ajudar a entender como o tratamento de exceções funciona:
 
@@ -1235,13 +1309,13 @@ except ValueError:
 
 #### 10.1.1. Explicação do Código:
 
-- **`try`**: Aqui, colocamos o código que pode gerar um erro. Neste caso, estamos pedindo ao usuário para digitar um número e realizando uma divisão.
+- **`try`**: Aqui, colocamos o código que pode gerar um erro. Neste caso, estamos a pedir ao usuário para digitar um número e realizar uma divisão.
 - **`except ZeroDivisionError`**: Se a operação `10 / x` gerar um erro de divisão por zero (quando `x` for igual a zero), o Python vai pular para o bloco `except` correspondente e executar o código dentro dele.
 - **`except ValueError`**: Se o usuário digitar algo que não seja um número (por exemplo, uma letra ou uma string que não pode ser convertida para inteiro), o Python gerará um `ValueError` e irá para este bloco.
   
 ### 10.2. Tratando Múltiplas Exceções
 
-Você pode ter vários blocos `except` para tratar diferentes tipos de exceções, como mostrado no exemplo acima. No entanto, você também pode capturar múltiplas exceções em um único bloco, se necessário:
+Você pode ter vários blocos `except` para tratar diferentes tipos de exceções, como mostrado no exemplo acima. No entanto, você também pode capturar múltiplas exceções num único bloco, se necessário:
 
 ```python
 try:
@@ -1258,7 +1332,7 @@ Aqui, a exceção será capturada de forma mais genérica, e a variável `e` ir�
 ### 10.3. Usando `else` e `finally`
 
 - **`else`**: O bloco `else` é executado se **nenhuma exceção** ocorrer.
-- **`finally`**: O bloco `finally` sempre será executado, independentemente de ocorrer uma exceção ou não. Ele é útil para liberar recursos (como fechar arquivos ou conexões).
+- **`finally`**: O bloco `finally` será sempre executado, independentemente de ocorrer uma exceção ou não. Ele é útil para liberar recursos (como fechar arquivos ou conexões).
 
 Exemplo com `else` e `finally`:
 
@@ -1281,7 +1355,7 @@ finally:
 
 ### 10.4. Capturando Exceções Genericamente
 
-Você também pode capturar exceções de forma genérica usando `except Exception` para pegar qualquer tipo de exceção:
+Você também pode capturar exceções de uma forma genérica usando `except Exception` para apanhar qualquer tipo de exceção:
 
 ```python
 try:
@@ -1291,7 +1365,7 @@ except Exception as e:
     print(f"Ocorreu um erro: {e}")
 ```
 
-Isso irá capturar qualquer erro que não tenha sido tratado de forma específica, mas o ideal é capturar exceções mais específicas, pois assim o código se torna mais claro e o tratamento de erros mais eficiente.
+Isso irá capturar qualquer erro que não tenha sido tratado de forma específica, mas o ideal é capturar exceções mais específicas, pois assim o código torna-se mais claro e o tratamento de erros mais eficiente.
 
 ### 10.5. Exemplo de Manipulação de Arquivos
 
@@ -1318,7 +1392,7 @@ O tratamento de exceções em Python com `try` e `except` ajuda a evitar que o p
 
 ## 11. Programação Orientada a Objetos
 
-Claro! Vamos explorar mais detalhadamente a Programação Orientada a Objetos (POO) em Python, começando com a criação e utilização de classes e objetos.
+Vamos explorar mais detalhadamente a Programação Orientada a Objetos (POO) em Python, começando com a criação e utilização de classes e objetos.
 
 ### O que é POO?
 
@@ -1337,7 +1411,7 @@ class Pessoa:
         self.idade = idade # Atributo idade
 
     def saudacao(self):
-        return f"Olá, meu nome é {self.nome} e tenho {self.idade} anos."
+        return f"Olá, o meu nome é {self.nome} e tenho {self.idade} anos."
 ```
 
 ### Explicação do Código:
@@ -1345,7 +1419,7 @@ class Pessoa:
 1. **`class Pessoa:`** - A palavra-chave `class` é usada para definir uma classe. Nesse caso, criamos uma classe chamada `Pessoa`.
 2. **`def __init__(self, nome, idade):`** - O método `__init__` é um método especial chamado **construtor**. Ele é executado sempre que criamos uma nova instância de `Pessoa`. Ele inicializa os atributos `nome` e `idade` da classe com os valores fornecidos ao criar o objeto.
 3. **`self.nome = nome`** - O `self` é uma referência à instância atual da classe, ou seja, ao objeto. Usamos `self` para definir atributos que pertencem a cada objeto da classe.
-4. **`def saudacao(self):`** - Este é um método da classe `Pessoa`. O método `saudacao` retorna uma string personalizada com o nome e a idade da pessoa.
+4. **`def saudacao(self):`** - Este é um método da classe `Pessoa`. O método `saudacao` vai-nos retornar uma string personalizada com o nome e a idade da pessoa.
 
 ### 11.2. Criando um Objeto
 
@@ -1356,12 +1430,12 @@ Agora, vamos criar um objeto da classe `Pessoa` e chamar o método `saudacao`:
 p = Pessoa("Alice", 30)
 
 # Chamando o método saudacao do objeto p
-print(p.saudacao())  # Saída: Olá, meu nome é Alice e tenho 30 anos.
+print(p.saudacao())  # Saída: Olá, o meu nome é Alice e tenho 30 anos.
 ```
 
 ### Explicação:
 
-- **`p = Pessoa("Alice", 30)`** - Criamos um objeto chamado `p` da classe `Pessoa`. Passamos os valores `"Alice"` e `30` como argumentos para o construtor (`__init__`).
+- **`p = Pessoa("Alice", 30)`** - Criamos um objeto/variável chamado `p` da classe `Pessoa`. Passamos os valores `"Alice"` e `30` como argumentos para o construtor (`__init__`).
 - **`print(p.saudacao())`** - Chamamos o método `saudacao()` do objeto `p`, que retorna uma string formatada.
 
 ### 11.3. Atributos e Métodos
@@ -1379,7 +1453,7 @@ class Carro:
 
     def acelerar(self):
         self.velocidade += 10
-        return f"Carro acelerando, velocidade: {self.velocidade} km/h."
+        return f"O carro está a acelerar, velocidade: {self.velocidade} km/h."
 
     def parar(self):
         self.velocidade = 0
@@ -1400,8 +1474,8 @@ print(carro.parar())     # Para o carro
    - `modelo`, `cor` e `velocidade` são atributos da classe `Carro`. O `modelo` e `cor` são fornecidos ao criar o objeto, e a `velocidade` começa com `0`.
    
 2. **Métodos**:
-   - `acelerar()` aumenta a velocidade do carro em 10 km/h e retorna uma string informando a nova velocidade.
-   - `parar()` zera a velocidade do carro e informa que o carro parou.
+   - `acelerar()` aumenta a velocidade do carro em 10 km/h e retorna-nos uma string a informar-nos a nova velocidade.
+   - `parar()` zera a velocidade do carro e informa-nos que o carro parou.
 
 ### 11.4. Herança
 
@@ -1440,7 +1514,7 @@ print(gato.falar())      # Saída: Miau diz: Miau!
    - A classe `Animal` tem um método `falar()`, mas o comportamento é genérico.
    
 2. **Subclasses (`Cachorro` e `Gato`)**:
-   - As classes `Cachorro` e `Gato` herdam de `Animal` e sobrescrevem o método `falar()` para dar um comportamento específico para cada tipo de animal.
+   - As classes `Cachorro` e `Gato` herdam do `Animal` e sobrescrevem o método `falar()` para dar um comportamento específico para cada tipo de animal.
    
 3. **Polimorfismo**:
    - O polimorfismo ocorre quando o método `falar()` é chamado, mas o comportamento varia dependendo do tipo de objeto (Cachorro ou Gato).
@@ -1489,7 +1563,7 @@ print(conta.obter_saldo())  # Saída: 1300
 
 ---
 
-Esses são os conceitos principais de **Programação Orientada a Objetos** em Python. Com isso, você consegue criar classes, instanciar objetos, trabalhar com herança e polimorfismo, além de usar encapsulamento para proteger os dados. Se você precisar de mais detalhes ou exemplos, me avise!
+Esses são os conceitos principais de **Programação Orientada a Objetos (POO)** em Python. Com isso, você consegue criar classes, instanciar objetos, trabalhar com herança e polimorfismo, além de usar encapsulamento para proteger os dados.
 
 ---
 
@@ -1498,7 +1572,7 @@ Esses são os conceitos principais de **Programação Orientada a Objetos** em P
 
 ### **12.1. NumPy**
 
-O **NumPy** é uma biblioteca fundamental para computação científica em Python. Ele fornece suporte para arrays multidimensionais e uma ampla gama de funções matemáticas.
+O **NumPy** é uma biblioteca fundamental para Computer Science (CS) em Python. Ele fornece suporte para matriculas (`arrays`) multidimensionais e uma ampla gama de funções matemáticas.
 
 **Instalação**: `pip install numpy`
 
@@ -1590,7 +1664,7 @@ plt.show()
 
 ### **12.4. Scikit-learn**
 
-O **Scikit-learn** é uma biblioteca para aprendizado de máquina. Ela fornece ferramentas simples e eficientes para análise de dados e construção de modelos de aprendizado de máquina.
+O **Scikit-learn** é uma biblioteca para a aprendizagem da máquina. Ela fornece ferramentas simples e eficientes para análise de dados e construção de modelos de aprendizagem da máquina.
 
 **Instalação**: `pip install scikit-learn`
 
@@ -1623,7 +1697,7 @@ print("Precisão do modelo:", accuracy_score(y_test, y_pred))
 
 ### **12.5. TensorFlow/PyTorch**
 
-**TensorFlow** e **PyTorch** são duas das bibliotecas mais populares para deep learning (aprendizado profundo). Ambas são usadas para criar e treinar redes neurais, com uma vasta gama de recursos para redes neurais convolucionais, redes neurais recorrentes, etc.
+**TensorFlow** e **PyTorch** são duas das bibliotecas mais populares para deep learning (aprendizagem profunda). Ambas são usadas para criar e treinar redes neurais, com uma vasta gama de recursos para redes neurais convolucionais, redes neurais recorrentes, etc.
 
 **Instalação (TensorFlow)**: `pip install tensorflow`
 **Instalação (PyTorch)**: `pip install torch`
@@ -1687,11 +1761,13 @@ else:
 - **NumPy**: Manipulação eficiente de arrays e operações matemáticas.
 - **Pandas**: Análise de dados com DataFrames.
 - **Matplotlib**: Criação de gráficos e visualizações.
-- **Scikit-learn**: Ferramentas para aprendizado de máquina e análise de dados.
+- **Scikit-learn**: Ferramentas para a aprendizagem da máquina e análise de dados.
 - **TensorFlow/PyTorch**: Bibliotecas poderosas para deep learning.
 - **Requests**: Facilita a interação com APIs e requisições HTTP.
 
-Essas bibliotecas são fundamentais para quem trabalha com dados, aprendizado de máquina ou inteligência artificial. Você pode instalar as bibliotecas com o comando `pip install` e explorar as funcionalidades através dos exemplos fornecidos.
+Essas bibliotecas são fundamentais para quem trabalha com dados, aprendizagem de máquinas ou inteligência artificial (IA). Você pode instalar as bibliotecas com o comando `pip install` e explorar as funcionalidades através dos exemplos fornecidos.
+
+! Caso você esteja a trabalhar em Linux ou MacOS escreva `pip3` e não `pip`
 
 ---
 
@@ -1747,7 +1823,7 @@ print(f"A média dos números é: {media}")
 ---
 
 
-### 3. Escreva um programa que leia um arquivo e exiba seu conteúdo na tela.
+### 3. Escreva um programa que leia um arquivo e exiba o seu conteúdo na tela.
 
 ```python
 # Lê o conteúdo de um arquivo
@@ -1818,6 +1894,9 @@ plt.show()
 
 ## 14. Conclusão
 
-Neste guia, abordamos os conceitos fundamentais da linguagem Python, desde a instalação até as técnicas avançadas, como Programação Orientada a Objetos e o uso de bibliotecas populares. Python se destaca por sua simplicidade e poder, tornando-se uma excelente escolha para desenvolvedores iniciantes e experientes. Esperamos que este conteúdo tenha proporcionado uma base sólida para sua jornada no mundo da programação e que você se sinta mais confiante para criar suas próprias soluções e explorar as inúmeras possibilidades que Python oferece. 
+Neste guia, abordamos os conceitos fundamentais da linguagem Python, desde a instalação até técnicas mais avançadas, como Programação Orientada a Objetos e o uso de bibliotecas populares. Python destaca-se pela sua simplicidade e poder, tornando-se uma excelente escolha para desenvolvedores iniciantes e experientes. Esperamos que este conteúdo tenha proporcionado uma base sólida para a sua jornada no mundo da programação e que você se sinta mais confiante para criar as suas próprias soluções e explorar as inúmeras possibilidades que Python lhe oferece. 
+
+! Atenção:
+- Este guia não lhe encinou tudo sobre o Python mas, sim uma base bastante sólida para começar a entrar no mundo da programação.
 
 Boa sorte e continue a explorar!
