@@ -361,7 +361,9 @@ print("Isto gerará um erro!")  # Indentação incorreta
 ```
 
 ! Por favor não clique 4 vezes no espaço (isso é vergonhoso para si como programador e para mim como professor), apenas precione Tab.
+
 ! Se não souber o que é a Tab desista de programar (estou a brincar).
+
 ! Caso não saiba o que é uma Tab aqui está a explicação - [O que é um Tab?](https://www.cursosdeinformaticabasica.com.br/para-que-serve-a-tecla-tab/)
 
 ### 3.3 Declaração de Variáveis
