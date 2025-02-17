@@ -1818,8 +1818,8 @@ def calcular_media(numeros):
 
 # Exemplo de uso
 lista_de_numeros = [10, 20, 30, 40, 50]
-media = calcular_media(lista_de_numeros)
-print(f"A média dos números é: {media}")
+minha_media = calcular_media(lista_de_numeros)
+print(f"A média dos números é: {minha_media}")
 ```
 
 ---
