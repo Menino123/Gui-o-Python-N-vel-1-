@@ -1896,7 +1896,7 @@ plt.show()
 
 ## 14. Conclusão
 
-Neste guia, abordamos os conceitos fundamentais da linguagem Python, desde a instalação até técnicas mais avançadas, como Programação Orientada a Objetos e o uso de bibliotecas populares. Python destaca-se pela sua simplicidade e poder, tornando-se uma excelente escolha para desenvolvedores iniciantes e experientes. Esperamos que este conteúdo tenha proporcionado uma base sólida para a sua jornada no mundo da programação e que você se sinta mais confiante para criar as suas próprias soluções e explorar as inúmeras possibilidades que Python lhe oferece. 
+Neste guia, abordamos os conceitos fundamentais da linguagem Python, desde a instalação até técnicas mais avançadas, como Programação Orientada a Objetos e o uso de bibliotecas populares. Python destaca-se pela sua simplicidade e poder, tornando-se uma excelente escolha para desenvolvedores iniciantes e experientes. Esperamos que este conteúdo tenha proporcionado uma base sólida para a sua jornada no mundo da programação e que você se sinta mais confiante para criar as suas próprias soluções e explorar as inúmeras possibilidades que o Python lhe oferece. 
 
 ! Atenção:
 - Este guia não lhe encinou tudo sobre o Python mas, sim uma base bastante sólida para começar a entrar no mundo da programação.
